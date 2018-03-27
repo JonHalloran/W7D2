@@ -7,13 +7,11 @@ import Root from "./components/root";
 import allTodos from "./reducers/selectors";
 
 document.addEventListener("DOMContentLoaded", () => {
-  ReactDOM.render(
-    <Root store={configureStore()} />,
-    document.getElementById("root")
-  );
+  let store = configureStore();
+  window.store = store;
+  ReactDOM.render(<Root store={store} />, document.getElementById("content"));
 });
 
-window.store = configureStore();
-window.allTodos = allTodos(window.store.getState());
+// window.allTodos = allTodos(window.store.getState());
 window.receiveTodo = receiveTodo;
 window.receiveTodos = receiveTodos;

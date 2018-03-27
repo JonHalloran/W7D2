@@ -3,10 +3,10 @@ import React from "react";
 class TodoForm extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props);
     this.state = {
       title: "",
-      body: ""
+      body: "",
+      done: false
     };
     this.makeTodo = this.makeTodo.bind(this);
     this.updateBody = this.updateBody.bind(this);
@@ -15,7 +15,7 @@ class TodoForm extends React.Component {
 
   makeTodo(event) {
     event.preventDefault();
-    this.props.receiveTodo(this.state);
+    this.props.createTodo(this.state);
   }
 
   updateTitle(event) {
